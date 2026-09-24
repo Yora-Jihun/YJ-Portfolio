@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How to learn fast — Yora Jihun</title>
+    <meta name="description" content="Learning fast is not about cramming. It is about shrinking the gap between trying something and finding out whether it worked.">
+
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script defer src="assets/js/app.js"></script>
+</head>
+
+<body class="flex min-h-dvh flex-col bg-white dark:bg-[#0a0a0a]">
+    <header x-data="{ open: false, activeMenu: null }" @mouseleave="activeMenu = null"
+        @keydown.escape.window="activeMenu = null; open = false"
+        @focusout="if (!$el.contains($event.relatedTarget)) activeMenu = null"
+        class="font-apple sticky top-0 z-50 border-b border-border bg-surface/80 backdrop-blur-md">
+        <nav
+            class="mx-auto flex h-11 max-w-6xl items-center justify-between px-4 text-xs text-[#1d1d1f] sm:px-6 lg:px-8 dark:text-[#f5f5f7]">
+            <a href="index.html" class="shrink-0 text-[15px] font-semibold tracking-tight">
+                YJ
+            </a>
+
+            <ul class="hidden flex-1 items-center justify-center gap-12 md:flex">
+                <li @mouseenter="activeMenu = null">
+                    <a href="index.html#about" @focus="activeMenu = null"
+                        class="text-[#1d1d1f] transition-colors hover:text-[#6e6e73] dark:text-[#f5f5f7] dark:hover:text-[#a1a1a6]">
+                        About
+                    </a>
+                </li>
+                <li @mouseenter="activeMenu = 1">
+                    <a href="index.html#projects" @focus="activeMenu = 1"
+                        @keydown.arrow-down.prevent="activeMenu = 1; $nextTick(() => $refs.firstProject.focus())"
+                        aria-haspopup="true" :aria-expanded="(activeMenu === 1).toString()" aria-expanded="false"
+                        class="text-[#1d1d1f] transition-colors hover:text-[#6e6e73] dark:text-[#f5f5f7] dark:hover:text-[#a1a1a6]">
+                        Product
+                    </a>
+                </li>
+                <li @mouseenter="activeMenu = null">
+                    <a href="docs.html" @focus="activeMenu = null"
+                        class="text-[#1d1d1f] transition-colors hover:text-[#6e6e73] dark:text-[#f5f5f7] dark:hover:text-[#a1a1a6]">
+                        Docs
+                    </a>
+                </li>
+                <li @mouseenter="activeMenu = null">
+                    <a href="skills.html" @focus="activeMenu = null"
+                        class="text-[#1d1d1f] transition-colors hover:text-[#6e6e73] dark:text-[#f5f5f7] dark:hover:text-[#a1a1a6]">
+                        Skills
+                    </a>
+                </li>
+                <li @mouseenter="activeMenu = null">
+                    <a href="experience.html" @focus="activeMenu = null"
+                        class="text-[#1d1d1f] transition-colors hover:text-[#6e6e73] dark:text-[#f5f5f7] dark:hover:text-[#a1a1a6]">
+                        Experience
+                    </a>
+                </li>
+                <li @mouseenter="activeMenu = null">
+                    <a href="blog.html" @focus="activeMenu = null"
+                        class="text-[#1d1d1f] transition-colors hover:text-[#6e6e73] dark:text-[#f5f5f7] dark:hover:text-[#a1a1a6]">
+                        Blog
+                    </a>
+                </li>
+            </ul>
+
+            <div class="flex shrink-0 items-center gap-5">
+                <button type="button" aria-label="Search" aria-haspopup="dialog" title="Search (Ctrl K)" @click="$dispatch('open-search')"
+                    class="rounded-full p-1.5 text-[#1d1d1f] transition-colors hover:bg-accent-soft hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent dark:text-[#f5f5f7]">
+                    <svg class="h-4 w-4" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 12L16 16M13.5 7.5C13.5 10.8137 10.8137 13.5 7.5 13.5C4.18629 13.5 1.5 10.8137 1.5 7.5C1.5 4.18629 4.18629 1.5 7.5 1.5C10.8137 1.5 13.5 4.18629 13.5 7.5Z"
+                            stroke="currentColor" stroke-width="1.1" stroke-linecap="round" />
+                    </svg>
+                </button>
+
+                <a href="index.html#contact"
+                    class="hidden rounded-full bg-[#1d1d1f] px-4 py-1.5 text-white transition-colors hover:bg-[#3a3a3c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:inline-block dark:bg-white dark:text-[#1d1d1f] dark:hover:bg-[#e5e5e5]">
+                    Get in touch
+                </a>
+
+                <button type="button" @click="open = !open" aria-label="Toggle menu" aria-expanded="false"
+                    :aria-expanded="open.toString()"
+                    class="text-[#1d1d1f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:hidden dark:text-[#f5f5f7]">
+                    <svg x-show="!open" class="h-4 w-4" viewBox="0 0 20 20" fill="none">
+                        <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.3"
+                            stroke-linecap="round" />
+                    </svg>
+                    <svg x-show="open" x-cloak class="h-4 w-4" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.3"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div class="relative hidden md:block">
+            <div x-show="activeMenu === 1" x-cloak x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="-translate-y-1 opacity-0" x-transition:enter-end="translate-y-0 opacity-100"
+                x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="absolute inset-x-0 top-0 z-40 border-b border-border bg-white shadow-[0_28px_48px_-28px_rgba(0,0,0,0.35)] dark:bg-[#161617]">
+                <div class="mx-auto max-w-6xl px-4 pt-7 pb-9 sm:px-6 lg:px-8">
+                    <div class="flex items-baseline justify-between">
+                        <p class="text-[11px] font-semibold tracking-wider text-muted uppercase">Selected work</p>
+                        <a href="index.html#projects" @click="activeMenu = null"
+                            class="inline-flex items-center gap-1 text-xs font-medium text-accent transition-colors hover:text-accent-hover focus-visible:underline focus-visible:outline-none">
+                            View all projects
+                            <svg class="h-3 w-3" viewBox="0 0 10 11" fill="none">
+                                <path d="M2.5 8L7.5 3M7.5 3H3.3M7.5 3V7.2" stroke="currentColor" stroke-width="1.2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="mt-5 grid grid-cols-3 gap-6">
+                        <a href="index.html#projects" @click="activeMenu = null" x-ref="firstProject"
+                            class="group block rounded-2xl focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-white focus-visible:outline-none dark:focus-visible:ring-offset-[#161617]">
+                            <div
+                                class="aspect-[16/10] overflow-hidden rounded-2xl bg-gray-100 ring-1 ring-black/5 transition-shadow duration-300 group-hover:shadow-xl dark:bg-white/5 dark:ring-white/10">
+                                <img src="assets/images/projects/pulseboard.jpg" alt="" loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]">
+                            </div>
+                            <div class="mt-4 flex items-center justify-between gap-3">
+                                <p class="text-[15px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#f5f5f7]">Pulseboard</p>
+                                <span
+                                    class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Web App</span>
+                            </div>
+                            <p class="mt-1 text-xs leading-relaxed text-muted">Real-time operations dashboard for logistics teams.</p>
+                        </a>
+                        <a href="index.html#projects" @click="activeMenu = null"
+                            class="group block rounded-2xl focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-white focus-visible:outline-none dark:focus-visible:ring-offset-[#161617]">
+                            <div
+                                class="aspect-[16/10] overflow-hidden rounded-2xl bg-gray-100 ring-1 ring-black/5 transition-shadow duration-300 group-hover:shadow-xl dark:bg-white/5 dark:ring-white/10">
+                                <img src="assets/images/projects/wanderlist.jpg" alt="" loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]">
+                            </div>
+                            <div class="mt-4 flex items-center justify-between gap-3">
+                                <p class="text-[15px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#f5f5f7]">Wanderlist</p>
+                                <span
+                                    class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Mobile App</span>
+                            </div>
+                            <p class="mt-1 text-xs leading-relaxed text-muted">Collaborative trip planning with offline maps.</p>
+                        </a>
+                        <a href="index.html#projects" @click="activeMenu = null"
+                            class="group block rounded-2xl focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-white focus-visible:outline-none dark:focus-visible:ring-offset-[#161617]">
+                            <div
+                                class="aspect-[16/10] overflow-hidden rounded-2xl bg-gray-100 ring-1 ring-black/5 transition-shadow duration-300 group-hover:shadow-xl dark:bg-white/5 dark:ring-white/10">
+                                <img src="assets/images/projects/atlas-ui.jpg" alt="" loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]">
+                            </div>
+                            <div class="mt-4 flex items-center justify-between gap-3">
+                                <p class="text-[15px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#f5f5f7]">Atlas UI</p>
+                                <span
+                                    class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Design System</span>
+                            </div>
+                            <p class="mt-1 text-xs leading-relaxed text-muted">A themeable component library adopted across 12 products.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-150"
+            x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0" class="border-t border-border bg-surface/95 backdrop-blur-md md:hidden">
+            <ul class="flex flex-col px-4 py-3">
+                <li>
+                    <a href="index.html#about" class="block py-2 text-[13px] text-[#1d1d1f] dark:text-[#f5f5f7]">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html#projects" class="block py-2 text-[13px] text-[#1d1d1f] dark:text-[#f5f5f7]">
+                        Product
+                    </a>
+                </li>
+                <li>
+                    <a href="docs.html" class="block py-2 text-[13px] text-[#1d1d1f] dark:text-[#f5f5f7]">
+                        Docs
+                    </a>
+                </li>
+                <li>
+                    <a href="skills.html" class="block py-2 text-[13px] text-[#1d1d1f] dark:text-[#f5f5f7]">
+                        Skills
+                    </a>
+                </li>
+                <li>
+                    <a href="experience.html" class="block py-2 text-[13px] text-[#1d1d1f] dark:text-[#f5f5f7]">
+                        Experience
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html" class="block py-2 text-[13px] text-[#1d1d1f] dark:text-[#f5f5f7]">
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main x-data="docsPage" class="mx-auto w-full max-w-6xl px-4 pt-14 pb-24 sm:px-6 lg:px-8 lg:pt-20">
+        <header class="max-w-3xl">
+            <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-muted">
+                <a href="blog.html" class="transition-colors hover:text-ink dark:hover:text-white">Blog</a>
+                <span aria-hidden="true">›</span>
+                <span class="text-ink dark:text-white">How to learn fast</span>
+            </nav>
+
+            <div class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs">
+                <span class="rounded-full bg-accent-soft px-2.5 py-1 font-semibold tracking-wide text-accent uppercase">Learning</span>
+                <span class="text-muted">Sep 2026</span>
+                <span class="text-muted" aria-hidden="true">·</span>
+                <span class="text-muted">3 min read</span>
+            </div>
+
+            <h1 class="mt-5 text-4xl font-semibold tracking-tight text-balance text-ink sm:text-6xl dark:text-white">How to learn fast</h1>
+            <p class="mt-5 text-xl leading-relaxed text-muted">Learning fast isn’t about cramming or speed-reading. It’s about shrinking the gap between trying something and finding out whether it worked. These are the habits that make that gap smaller.</p>
+
+            <div class="mt-8 flex items-center gap-3">
+                <img src="assets/images/about/portrait.jpg" alt="" width="80" height="100" class="h-10 w-10 rounded-full object-cover ring-1 ring-border">
+                <div>
+                    <p class="text-sm font-semibold text-ink dark:text-white">Yora Jihun</p>
+                    <p class="text-xs text-muted">Lead System Engineer &amp; AI Specialist</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-accent via-[#5e5ce6] to-fuchsia-400 mt-10 aspect-[21/9] rounded-3xl" aria-hidden="true">
+                    <span class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/15"></span>
+                    <span class="absolute -bottom-10 -left-6 h-28 w-28 rounded-full bg-white/10"></span>
+                    <svg class="h-16 w-16 relative text-white" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M11 2 4 12h5l-1 6 7-10h-5l1-6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="currentColor" fill-opacity="0.15" /></svg>
+                </div>
+
+        <div class="mt-14 lg:grid lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-16">
+            <article class="max-w-2xl">
+                    <section id="idea" data-doc-section data-title="The big idea" class="scroll-mt-28 lg:scroll-mt-20">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">The big idea</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Most people learn slowly because they spend their time on the wrong part of the loop. They watch, read and highlight, which is input, and they rarely try something, get stuck and check the result, which is feedback.</p>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Fast learners flip the ratio: a little input, a lot of practice, and quick feedback on every attempt. Everything below is a way of doing that.</p>
+                    </section>
+                    <section id="start" data-doc-section data-title="Start with something you want to make" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white"><span class="mr-3 font-mono text-sm font-semibold text-accent">01</span>Start with something you want to make</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">A syllabus tells you what exists. A project tells you what you need. Pick something small and slightly out of reach — a landing page, a tiny API, a calculator — and let it pull you through the material.</p>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">When every topic has a reason to exist, it sticks. You stop asking “will I ever use this?” because you’re already using it.</p>
+                    </section>
+                    <section id="enough" data-doc-section data-title="Learn just enough, then build" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white"><span class="mr-3 font-mono text-sm font-semibold text-accent">02</span>Learn just enough, then build</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Read or watch until you can take the first step, then stop and start. You’ll never feel completely ready, and that’s fine.</p>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Ten minutes of documentation followed by twenty minutes of building teaches more than an hour of tutorials on their own.</p>
+                    </section>
+                    <section id="feedback" data-doc-section data-title="Shorten the feedback loop" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white"><span class="mr-3 font-mono text-sm font-semibold text-accent">03</span>Shorten the feedback loop</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Change one thing, run it, look at the result. The faster you can see whether something worked, the faster your mental model corrects itself.</p>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Work in small steps, keep the browser or terminal open next to your editor, and prefer tools that show results instantly.</p>
+                        <aside class="mt-6 flex gap-3 rounded-2xl bg-accent-soft p-4 text-[15px] leading-relaxed text-ink dark:text-white">
+                            <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M11 2 4 12h5l-1 6 7-10h-5l1-6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="currentColor" fill-opacity="0.15" /></svg>
+                            <p><strong class="font-semibold">Try this.</strong> Next time you’re stuck, write one sentence: “I expected X, but got Y.” Often the sentence alone points at the bug.</p>
+                        </aside>
+                    </section>
+                    <section id="recall" data-doc-section data-title="Recall instead of re-reading" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white"><span class="mr-3 font-mono text-sm font-semibold text-accent">04</span>Recall instead of re-reading</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Re-reading feels productive because it feels familiar, but familiar isn’t the same as remembered. Close the tab and rebuild what you just learned from scratch.</p>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Explain it out loud as if to a friend. Wherever you get stuck is exactly what to study next.</p>
+                    </section>
+                    <section id="space" data-doc-section data-title="Space it out" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white"><span class="mr-3 font-mono text-sm font-semibold text-accent">05</span>Space it out</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Come back to the same idea after a day, then a week, then a month. Each return is short, and each one makes the memory sturdier.</p>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">A few minutes of review spread over weeks beats one long cram session.</p>
+                    </section>
+                    <section id="break" data-doc-section data-title="Break things on purpose" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white"><span class="mr-3 font-mono text-sm font-semibold text-accent">06</span>Break things on purpose</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Delete a line, rename a variable, change a value — and predict what will happen before you run it. Then check.</p>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Understanding how something fails is one of the quickest ways to understand how it works.</p>
+                    </section>
+                    <section id="teach" data-doc-section data-title="Write it down and teach it" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white"><span class="mr-3 font-mono text-sm font-semibold text-accent">07</span>Write it down and teach it</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Keep short notes in your own words, and try to teach what you learned: a blog post, a message to a classmate, a comment in the code.</p>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">If you can’t explain it simply, you’ve just found the gap.</p>
+                    </section>
+                    <section id="focus" data-doc-section data-title="Protect your focus" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white"><span class="mr-3 font-mono text-sm font-semibold text-accent">08</span>Protect your focus</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Work in focused blocks of about 25 to 45 minutes with a short break between them, and silence notifications while you do.</p>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Sleep matters more than one more late-night hour. A lot of learning settles while you rest.</p>
+                    </section>
+                    <section id="loop" data-doc-section data-title="A simple weekly loop" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">A simple weekly loop</h2>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">If you want something concrete to start with, run this loop once a week.</p>
+                        <ol class="mt-6 grid gap-4 sm:grid-cols-3">
+                            <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
+                                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-semibold text-white">1</span>
+                                <h3 class="mt-3 font-semibold text-ink dark:text-white">Plan</h3>
+                                <p class="mt-1 text-sm leading-relaxed text-muted">Choose one small thing to build, and note what you’ll need to learn to build it.</p>
+                            </li>
+                            <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
+                                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-semibold text-white">2</span>
+                                <h3 class="mt-3 font-semibold text-ink dark:text-white">Build</h3>
+                                <p class="mt-1 text-sm leading-relaxed text-muted">Work in short blocks. Write down every place you get stuck — those are your next topics.</p>
+                            </li>
+                            <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
+                                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-semibold text-white">3</span>
+                                <h3 class="mt-3 font-semibold text-ink dark:text-white">Review</h3>
+                                <p class="mt-1 text-sm leading-relaxed text-muted">Recall it from memory, note what you learned in your own words, then choose the next thing.</p>
+                            </li>
+                        </ol>
+                    </section>
+                    <section id="takeaways" data-doc-section data-title="Key takeaways" class="scroll-mt-28 lg:scroll-mt-20 pt-12">
+                        <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">Key takeaways</h2>
+                        <ul class="mt-6 space-y-3 rounded-2xl bg-surface p-6 ring-1 ring-border">
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed text-ink dark:text-white"><svg class="mt-1.5 h-3.5 w-3.5 shrink-0 text-accent" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Spend less time taking things in and more time trying them.</span></li>
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed text-ink dark:text-white"><svg class="mt-1.5 h-3.5 w-3.5 shrink-0 text-accent" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Start from a project, and learn only what the next step needs.</span></li>
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed text-ink dark:text-white"><svg class="mt-1.5 h-3.5 w-3.5 shrink-0 text-accent" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Keep the loop short: change, run, look, adjust.</span></li>
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed text-ink dark:text-white"><svg class="mt-1.5 h-3.5 w-3.5 shrink-0 text-accent" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Test yourself from memory, and come back to it after a day, a week and a month.</span></li>
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed text-ink dark:text-white"><svg class="mt-1.5 h-3.5 w-3.5 shrink-0 text-accent" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Explain it to someone else — or to a blank page.</span></li>
+                        </ul>
+                        <p class="mt-4 text-[17px] leading-8 text-ink/80 dark:text-white/80">Learning fast is mostly learning deliberately. Pick a project this week, keep the loop short, and let the questions you run into decide what you study next.</p>
+                        <aside class="mt-10 rounded-2xl bg-accent-soft p-6">
+                            <p class="font-semibold text-ink dark:text-white">Want to go step by step?</p>
+                            <p class="mt-1 text-sm leading-relaxed text-ink/80 dark:text-white/80">Lessons for students are on the way in the docs — frontend, backend and design.</p>
+                            <a href="docs.html" class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent transition-colors hover:text-accent-hover">Open the docs <svg class="h-3 w-3" viewBox="0 0 10 11" fill="none"><path d="M2.5 8L7.5 3M7.5 3H3.3M7.5 3V7.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+                        </aside>
+                    </section>
+
+                <a href="blog.html" class="mt-12 inline-flex items-center gap-1 text-sm font-medium text-accent transition-colors hover:text-accent-hover">← Back to all posts</a>
+            </article>
+
+            <aside class="hidden lg:block">
+                <nav aria-label="In this article" class="sticky top-[4.5rem] pt-2">
+                    <p class="pb-3 text-[11px] font-semibold tracking-wider text-ink uppercase dark:text-white">In this article</p>
+                    <ul>
+                        <li>
+                            <a href="#idea" :aria-current="active === 'idea' ? 'true' : null"
+                                :class="active === 'idea' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'idea' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">The big idea</a>
+                        </li>
+                        <li>
+                            <a href="#start" :aria-current="active === 'start' ? 'true' : null"
+                                :class="active === 'start' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'start' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">Start with something you want to make</a>
+                        </li>
+                        <li>
+                            <a href="#enough" :aria-current="active === 'enough' ? 'true' : null"
+                                :class="active === 'enough' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'enough' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">Learn just enough, then build</a>
+                        </li>
+                        <li>
+                            <a href="#feedback" :aria-current="active === 'feedback' ? 'true' : null"
+                                :class="active === 'feedback' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'feedback' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">Shorten the feedback loop</a>
+                        </li>
+                        <li>
+                            <a href="#recall" :aria-current="active === 'recall' ? 'true' : null"
+                                :class="active === 'recall' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'recall' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">Recall instead of re-reading</a>
+                        </li>
+                        <li>
+                            <a href="#space" :aria-current="active === 'space' ? 'true' : null"
+                                :class="active === 'space' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'space' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">Space it out</a>
+                        </li>
+                        <li>
+                            <a href="#break" :aria-current="active === 'break' ? 'true' : null"
+                                :class="active === 'break' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'break' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">Break things on purpose</a>
+                        </li>
+                        <li>
+                            <a href="#teach" :aria-current="active === 'teach' ? 'true' : null"
+                                :class="active === 'teach' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'teach' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">Write it down and teach it</a>
+                        </li>
+                        <li>
+                            <a href="#focus" :aria-current="active === 'focus' ? 'true' : null"
+                                :class="active === 'focus' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'focus' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">Protect your focus</a>
+                        </li>
+                        <li>
+                            <a href="#loop" :aria-current="active === 'loop' ? 'true' : null"
+                                :class="active === 'loop' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'loop' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">A simple weekly loop</a>
+                        </li>
+                        <li>
+                            <a href="#takeaways" :aria-current="active === 'takeaways' ? 'true' : null"
+                                :class="active === 'takeaways' ? 'font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                class="block border-l-2 py-1.5 pl-4 text-sm transition-colors focus-visible:outline-none focus-visible:text-accent"
+                                :style="active === 'takeaways' ? 'border-color: var(--color-accent)' : 'border-color: transparent'">Key takeaways</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="font-apple mt-auto border-t border-border bg-surface">
+        <div class="mx-auto max-w-6xl px-4 py-6 text-xs text-muted sm:px-6 lg:px-8">
+            <nav aria-label="Footer" class="flex flex-wrap gap-x-5 gap-y-2">
+                <a href="index.html#about" class="transition-colors hover:text-ink dark:hover:text-white">About</a>
+                <a href="index.html#projects" class="transition-colors hover:text-ink dark:hover:text-white">Product</a>
+                <a href="docs.html" class="transition-colors hover:text-ink dark:hover:text-white">Docs</a>
+                <a href="skills.html" class="transition-colors hover:text-ink dark:hover:text-white">Skills</a>
+                <a href="experience.html" class="transition-colors hover:text-ink dark:hover:text-white">Experience</a>
+                <a href="blog.html" class="transition-colors hover:text-ink dark:hover:text-white">Blog</a>
+            </nav>
+
+            <p class="mt-6 max-w-2xl leading-relaxed">
+                Self-taught Lead System Engineer &amp; AI Specialist building production systems across Laravel,
+                robotics, and aerospace.
+                <span class="mt-1 block">
+                    More ways to connect:
+                    <a href="mailto:yorajihun@gmail.com" class="text-accent underline underline-offset-2 transition-colors hover:text-accent-hover">send an email</a> or
+                    <a href="index.html#projects" class="text-accent underline underline-offset-2 transition-colors hover:text-accent-hover">see my work</a>.
+                </span>
+            </p>
+
+            <div class="mt-5 flex flex-col gap-1 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
+                <p>Copyright &copy; <span x-data x-text="new Date().getFullYear()">2026</span> Yora Jihun. All rights reserved.</p>
+                <p>Seoul, South Korea</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Quick-jump search: opened by the navbar icon or Ctrl/⌘+K -->
+    <div x-data="siteSearch" @open-search.window="open()" @keydown.window.ctrl.k.prevent="open()"
+        @keydown.window.meta.k.prevent="open()" @keydown.escape.window="isOpen && close()">
+        <div x-show="isOpen" x-cloak class="fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label="Search">
+            <div @click="close()" class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+
+            <div x-show="isOpen" x-transition:enter="transition ease-out duration-150"
+                x-transition:enter-start="scale-[0.98] opacity-0" x-transition:enter-end="scale-100 opacity-100"
+                class="font-apple relative mx-auto mt-[12vh] w-[calc(100%-2rem)] max-w-xl overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/10 dark:bg-[#1d1d1f] dark:ring-white/10">
+                <div class="flex items-center gap-3 border-b border-border px-4">
+                    <svg class="h-4 w-4 shrink-0 text-muted" viewBox="0 0 17 17" fill="none" aria-hidden="true">
+                        <path
+                            d="M12 12L16 16M13.5 7.5C13.5 10.8137 10.8137 13.5 7.5 13.5C4.18629 13.5 1.5 10.8137 1.5 7.5C1.5 4.18629 4.18629 1.5 7.5 1.5C10.8137 1.5 13.5 4.18629 13.5 7.5Z"
+                            stroke="currentColor" stroke-width="1.1" stroke-linecap="round" />
+                    </svg>
+                    <input x-ref="input" x-model="query" type="text" role="combobox" aria-expanded="true"
+                        aria-controls="search-results" aria-autocomplete="list" aria-label="Search the site"
+                        :aria-activedescendant="results.length ? 'search-opt-' + index : null"
+                        placeholder="Search topics, guides and projects" autocomplete="off" spellcheck="false"
+                        @keydown.arrow-down.prevent="move(1)" @keydown.arrow-up.prevent="move(-1)"
+                        @keydown.enter.prevent="go()" @keydown.tab.prevent=""
+                        class="h-14 w-full bg-transparent text-base text-ink placeholder:text-muted focus:outline-none dark:text-white">
+                    <kbd
+                        class="hidden shrink-0 rounded-md border border-border px-1.5 py-0.5 font-mono text-[10px] text-muted sm:block">ESC</kbd>
+                </div>
+
+                <ul id="search-results" x-ref="list" role="listbox" aria-label="Results"
+                    class="max-h-[50vh] overflow-y-auto p-2">
+                    <template x-for="(item, i) in results" :key="item.group + item.title">
+                        <li :id="'search-opt-' + i" role="option" :aria-selected="(i === index).toString()"
+                            @mouseenter="index = i" @click="go(item)"
+                            :class="i === index ? 'bg-accent-soft' : ''"
+                            class="flex cursor-pointer items-center justify-between gap-4 rounded-xl px-3 py-2.5">
+                            <div class="min-w-0">
+                                <p class="truncate text-sm font-medium text-ink dark:text-white" x-text="item.title"></p>
+                                <p class="truncate text-xs text-muted" x-text="item.hint"></p>
+                            </div>
+                            <span class="shrink-0 text-[11px] font-medium tracking-wide text-muted uppercase"
+                                x-text="item.group"></span>
+                        </li>
+                    </template>
+                    <li x-show="!results.length" class="px-3 py-10 text-center text-sm text-muted">
+                        No results for “<span x-text="query"></span>”.
+                    </li>
+                </ul>
+
+                <div class="hidden items-center gap-5 border-t border-border bg-surface px-4 py-2.5 text-[11px] text-muted sm:flex">
+                    <span>↑↓ Navigate</span>
+                    <span>↵ Open</span>
+                    <span>Esc Close</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

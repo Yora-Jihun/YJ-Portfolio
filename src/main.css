@@ -1,0 +1,53 @@
+@import 'tailwindcss' source(none);
+@source '../*.html';
+
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-ink: oklch(21% 0.006 285.885);
+    --color-muted: oklch(51% 0.014 264);
+    --color-border: oklch(92% 0.006 264);
+    --color-surface: oklch(98% 0.002 264);
+
+    --color-accent: oklch(59.5% 0.196 254);
+    --color-accent-hover: oklch(52% 0.19 254);
+    --color-accent-soft: oklch(94% 0.03 254);
+
+    --font-apple: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/*
+ * Neutral + accent tokens auto-swap for dark mode here so components can
+ * reach for `text-muted`, `border-border`, `bg-surface`, `bg-accent-soft`
+ * once and get correct contrast in both themes without a `dark:` pair.
+ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-muted: oklch(70% 0.015 264);
+        --color-border: oklch(32% 0.01 264 / 50%);
+        --color-surface: oklch(18% 0.006 264);
+
+        --color-accent: oklch(66% 0.19 254);
+        --color-accent-hover: oklch(72% 0.18 254);
+        --color-accent-soft: oklch(28% 0.07 254);
+    }
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+/* Smooth in-page jumps for the documentation sidebar, unless the visitor prefers reduced motion. */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+}
