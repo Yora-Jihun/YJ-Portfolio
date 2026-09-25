@@ -91,7 +91,7 @@ If you want something concrete to start with, run this loop once a week.
 Learning fast is mostly learning deliberately. Pick a project this week, keep the loop short, and let the questions you run into decide what you study next.
 
 :::note Want to go step by step?
-Lessons for students are on the way in the docs, covering fullstack development, AI chatbots, electronics and more.
+The docs have beginner-friendly lessons that start from zero, beginning with your first website.
 
 [Open the docs](docs.html)
 :::

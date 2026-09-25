@@ -3,10 +3,11 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "node scripts/build-blog.mjs && concurrently -k -n posts,build,serve -c yellow,blue,green \"node scripts/build-blog.mjs --watch\" \"vite build --watch\" \"vite --open\"",
+        "dev": "node scripts/build-blog.mjs && node scripts/build-docs.mjs && concurrently -k -n posts,docs,build,serve -c yellow,magenta,blue,green \"node scripts/build-blog.mjs --watch\" \"node scripts/build-docs.mjs --watch\" \"vite build --watch\" \"vite --open\"",
         "start": "npm run dev",
         "build:blog": "node scripts/build-blog.mjs",
-        "build": "node scripts/build-blog.mjs && vite build",
+        "build:docs": "node scripts/build-docs.mjs",
+        "build": "node scripts/build-blog.mjs && node scripts/build-docs.mjs && vite build",
         "watch": "vite build --watch"
     },
     "devDependencies": {

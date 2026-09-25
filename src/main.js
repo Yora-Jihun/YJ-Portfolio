@@ -1,6 +1,7 @@
 import './main.css';
 import Alpine from 'alpinejs';
 import { postSearch } from './generated/posts-search.js';
+import { docsSearch } from './generated/docs-search.js';
 
 // Documentation layout: tracks which section is being read so the sidebar can highlight it,
 // and drives the collapsible section switcher on small screens.
@@ -84,7 +85,7 @@ const searchIndex = [
     { group: 'Section', title: 'Contact', hint: 'Email me or copy my address', href: '#contact', suggested: true, keywords: 'email hire reach message' },
 
     // Pages
-    { group: 'Page', title: 'Docs', hint: 'Lessons for students: coming soon', href: 'docs.html', suggested: true, keywords: 'lessons learn students tutorials' },
+    { group: 'Page', title: 'Docs', hint: 'Beginner-friendly lessons, one recipe at a time', href: 'docs.html', suggested: true, keywords: 'lessons learn students tutorials' },
     { group: 'Page', title: 'Skills', hint: 'Fullstack, AI, electronics, 3D, design and more', href: 'skills.html', suggested: true },
     { group: 'Page', title: 'Experience', hint: 'A timeline from 2016 to 2026', href: 'experience.html', suggested: true, keywords: 'jobs career work history' },
     { group: 'Page', title: 'Blog', hint: 'Recent posts', href: 'blog.html', suggested: true },
@@ -117,21 +118,12 @@ const searchIndex = [
     { group: 'Timeline', title: "2025 · Part II", hint: "21 years old: Passed, Completed, Promoted", href: 'experience.html#y2025b', keywords: "passed initial and final interview. completed training in administration and accounting. promoted head admin, contributed to multiple corporations by improving systems and reducing paperwork. government documentation experience managed papers for agencies such as sss, pag-ibig, and philhealth, while assisting clients in resolving issues through multitasking. banking support provided support for institutions like metrobank, psbank, and others. corporate support assisted with processes involving companies such as toyota and more. youngest member of the centralized internal officers recognized for early leadership and organizational impact. victory church reconnected with god and met kind, inspiring people; an amazing spiritual experience." },
     { group: 'Timeline', title: "2025 – 2026 · Part III", hint: "21 to 22 years old: Passed the Final Interview with the CEO and Vice President, Joined the IT Department, Lead System Engineer", href: 'experience.html#y2026', keywords: "passed the final interview with the ceo and vice president joined the it department contributed to system improvements and organizational efficiency. lead system engineer directed system development and successfully designed and implemented multiple full-stack corporate systems, built on php laravel and mysql as the core foundation. ai specialist contributed to the field of ai, enhancing productivity and workflow processes. chosen by the vice president presented the company profile to a toyota guest manager. invited to an ai event met the group of henry sy and john c. maxwell; a milestone experience connecting with highly intelligent founders at a young age. executive meetings invited to a project meeting at chinabank’s main building, where i collaborated with top executives." },
 
-    // Docs topics and lessons (lessons are not written yet)
-    { group: 'Docs', title: "Fullstack Engineer", hint: "Lessons coming soon: HTML, CSS, SCSS, JavaScript", href: 'docs.html#fullstack', keywords: "html css scss javascript python php sql bash laravel sveltekit express.js tailwind css alpine.js blade templates node.js vite xampp herd git github vs code mysql firebase amazon s3 laravel cloud lessons learn students" },
-    { group: 'Docs', title: "AI Chatbot Developer", hint: "Lessons coming soon: Python, Node.js, Hugging Face, OpenAI API", href: 'docs.html#ai-chatbot', keywords: "python node.js hugging face openai api gemini api lessons learn students" },
-    { group: 'Docs', title: "Electronics & IoT", hint: "Lessons coming soon: C++, ESP32, ESP8266, Arduino Uno R3", href: 'docs.html#electronics-iot', keywords: "c++ esp32 esp8266 arduino uno r3 hc-sr04 servo motor driver lcd 320 x 240 lcd tft touch lessons learn students" },
-    { group: 'Docs', title: "Data Analytics", hint: "Lessons coming soon: Google Sheets, SQL, Python, Google Colab", href: 'docs.html#data-analytics', keywords: "google sheets sql python google colab lessons learn students" },
-    { group: 'Docs', title: "3D Artist", hint: "Lessons coming soon: Blender, SOLIDWORKS, Fusion 360", href: 'docs.html#3d-artist', keywords: "blender solidworks fusion 360 lessons learn students" },
-    { group: 'Docs', title: "Graphics and Design", hint: "Lessons coming soon: Adobe, Corel, Figma", href: 'docs.html#graphics-design', keywords: "adobe corel figma lessons learn students" },
-    { group: 'Docs', title: "Video Editing", hint: "Lessons coming soon: CapCut", href: 'docs.html#video-editing', keywords: "capcut lessons learn students" },
-    { group: 'Docs', title: "Desktop Software", hint: "Lessons coming soon: Electron.js, Rust, Turing", href: 'docs.html#desktop-software', keywords: "electron.js rust turing lessons learn students" },
-    { group: 'Docs', title: "Problem Solving", hint: "Lessons coming soon: LeetCode", href: 'docs.html#problem-solving', keywords: "leetcode lessons learn students" },
-    { group: 'Docs', title: "Productivity", hint: "Lessons coming soon: Google Docs", href: 'docs.html#productivity', keywords: "google docs lessons learn students" },
-
     // About sub-topics
     { group: 'Topic', title: 'Education highlights', hint: 'Junior High and Senior High milestones', href: '#about', keywords: 'school honors stem rank' },
     { group: 'Topic', title: 'Achievements & recognition', hint: 'Research, speaking and academic excellence', href: '#about', keywords: 'awards research grades scores' },
+
+    // Lessons (generated from docs/*.md)
+    ...docsSearch,
 
     // Blog posts (generated from posts/*.md)
     ...postSearch,
@@ -255,37 +247,16 @@ Alpine.data('ageTimeline', ({ birthYear, startYear, endYear, lastId }) => ({
     },
 }));
 
-// Copy-to-clipboard for the contact email. Falls back to execCommand where the
-// async Clipboard API isn't available (e.g. pages opened from file://).
-Alpine.data('copyEmail', (email) => ({
-    email,
-    copied: false,
-    timer: null,
-
-    async copy() {
-        let ok = false;
-
-        try {
-            // Race against a timeout so a pending permission prompt can't leave the button stuck.
-            await Promise.race([
-                navigator.clipboard.writeText(this.email),
-                new Promise((_, reject) => setTimeout(reject, 1500)),
-            ]);
-            ok = true;
-        } catch {
-            ok = this.legacyCopy();
-        }
-
-        if (!ok) return;
-
-        this.copied = true;
-        clearTimeout(this.timer);
-        this.timer = setTimeout(() => (this.copied = false), 2000);
-    },
-
-    legacyCopy() {
+// Copy text to the clipboard. Falls back to execCommand where the async Clipboard API isn't available
+// (e.g. pages opened from file://). Resolves to true when the text was copied.
+async function copyText(text) {
+    try {
+        // Race against a timeout so a pending permission prompt can't leave a button stuck.
+        await Promise.race([navigator.clipboard.writeText(text), new Promise((_, reject) => setTimeout(reject, 1500))]);
+        return true;
+    } catch {
         const field = document.createElement('textarea');
-        field.value = this.email;
+        field.value = text;
         field.setAttribute('readonly', '');
         field.style.position = 'fixed';
         field.style.opacity = '0';
@@ -299,8 +270,28 @@ Alpine.data('copyEmail', (email) => ({
         } finally {
             field.remove();
         }
+    }
+}
+
+// A copy button that briefly says "Copied!". `getText` returns what to copy.
+const copier = (getText) => ({
+    copied: false,
+    timer: null,
+
+    async copy() {
+        if (!(await copyText(getText(this)))) return;
+
+        this.copied = true;
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => (this.copied = false), 2000);
     },
-}));
+});
+
+// The contact email box.
+Alpine.data('copyEmail', (email) => ({ email, ...copier((self) => self.email) }));
+
+// The Copy button on code blocks in the lessons.
+Alpine.data('copyCode', () => copier((self) => self.$root.querySelector('code').textContent));
 
 window.Alpine = Alpine;
 
