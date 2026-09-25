@@ -51,3 +51,33 @@
         }
     }
 }
+
+/*
+ * Gentle fade-up for elements marked data-reveal. Only applies when scripting is on and the visitor
+ * has not asked for reduced motion. The fail-safe animation reveals everything after 3s in case
+ * the script never runs, so content can never stay hidden.
+ */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+            opacity 0.8s cubic-bezier(0.22, 0.7, 0.2, 1),
+            transform 0.8s cubic-bezier(0.22, 0.7, 0.2, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+        animation: reveal-failsafe 0s linear 3s forwards;
+    }
+
+    [data-reveal].is-visible {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}
+
+@keyframes reveal-failsafe {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}

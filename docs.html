@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Docs — Yora Jihun</title>
-    <meta name="description" content="Lessons for students from Yora Jihun — frontend, backend and design. The first lessons are coming soon.">
+    <title>Docs | Yora Jihun</title>
+    <meta name="description" content="Lessons for students from Yora Jihun: fullstack development, AI chatbots, electronics and more. The first lessons are coming soon.">
 
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/app.css">
@@ -219,7 +219,7 @@
                         <p class="px-3 pb-1.5 text-[11px] font-semibold tracking-wider text-ink uppercase dark:text-white">Getting started</p>
                         <ul class="space-y-0.5">
                             <li>
-                                <a href="#welcome" @click="navOpen = false" :aria-current="active === 'welcome' ? 'true' : null"
+                                <a href="#welcome" @click="select('welcome')" :aria-current="active === 'welcome' ? 'true' : null"
                                     :class="active === 'welcome' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Welcome</a>
                             </li>
@@ -229,19 +229,54 @@
                         <p class="px-3 pb-1.5 text-[11px] font-semibold tracking-wider text-ink uppercase dark:text-white">Lessons</p>
                         <ul class="space-y-0.5">
                             <li>
-                                <a href="#frontend" @click="navOpen = false" :aria-current="active === 'frontend' ? 'true' : null"
-                                    :class="active === 'frontend' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
-                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Frontend</a>
+                                <a href="#fullstack" @click="select('fullstack')" :aria-current="active === 'fullstack' ? 'true' : null"
+                                    :class="active === 'fullstack' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Fullstack Engineer</a>
                             </li>
                             <li>
-                                <a href="#backend" @click="navOpen = false" :aria-current="active === 'backend' ? 'true' : null"
-                                    :class="active === 'backend' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
-                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Backend</a>
+                                <a href="#ai-chatbot" @click="select('ai-chatbot')" :aria-current="active === 'ai-chatbot' ? 'true' : null"
+                                    :class="active === 'ai-chatbot' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">AI Chatbot Developer</a>
                             </li>
                             <li>
-                                <a href="#design" @click="navOpen = false" :aria-current="active === 'design' ? 'true' : null"
-                                    :class="active === 'design' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
-                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Design</a>
+                                <a href="#electronics-iot" @click="select('electronics-iot')" :aria-current="active === 'electronics-iot' ? 'true' : null"
+                                    :class="active === 'electronics-iot' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Electronics &amp; IoT</a>
+                            </li>
+                            <li>
+                                <a href="#data-analytics" @click="select('data-analytics')" :aria-current="active === 'data-analytics' ? 'true' : null"
+                                    :class="active === 'data-analytics' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Data Analytics</a>
+                            </li>
+                            <li>
+                                <a href="#3d-artist" @click="select('3d-artist')" :aria-current="active === '3d-artist' ? 'true' : null"
+                                    :class="active === '3d-artist' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">3D Artist</a>
+                            </li>
+                            <li>
+                                <a href="#graphics-design" @click="select('graphics-design')" :aria-current="active === 'graphics-design' ? 'true' : null"
+                                    :class="active === 'graphics-design' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Graphics and Design</a>
+                            </li>
+                            <li>
+                                <a href="#video-editing" @click="select('video-editing')" :aria-current="active === 'video-editing' ? 'true' : null"
+                                    :class="active === 'video-editing' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Video Editing</a>
+                            </li>
+                            <li>
+                                <a href="#desktop-software" @click="select('desktop-software')" :aria-current="active === 'desktop-software' ? 'true' : null"
+                                    :class="active === 'desktop-software' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Desktop Software</a>
+                            </li>
+                            <li>
+                                <a href="#problem-solving" @click="select('problem-solving')" :aria-current="active === 'problem-solving' ? 'true' : null"
+                                    :class="active === 'problem-solving' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Problem Solving</a>
+                            </li>
+                            <li>
+                                <a href="#productivity" @click="select('productivity')" :aria-current="active === 'productivity' ? 'true' : null"
+                                    :class="active === 'productivity' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Productivity</a>
                             </li>
                         </ul>
                     </div>
@@ -257,7 +292,7 @@
                         <p class="px-3 pb-1.5 text-[11px] font-semibold tracking-wider text-ink uppercase dark:text-white">Getting started</p>
                         <ul class="space-y-0.5">
                             <li>
-                                <a href="#welcome" @click="navOpen = false" :aria-current="active === 'welcome' ? 'true' : null"
+                                <a href="#welcome" @click="select('welcome')" :aria-current="active === 'welcome' ? 'true' : null"
                                     :class="active === 'welcome' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Welcome</a>
                             </li>
@@ -267,19 +302,54 @@
                         <p class="px-3 pb-1.5 text-[11px] font-semibold tracking-wider text-ink uppercase dark:text-white">Lessons</p>
                         <ul class="space-y-0.5">
                             <li>
-                                <a href="#frontend" @click="navOpen = false" :aria-current="active === 'frontend' ? 'true' : null"
-                                    :class="active === 'frontend' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
-                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Frontend</a>
+                                <a href="#fullstack" @click="select('fullstack')" :aria-current="active === 'fullstack' ? 'true' : null"
+                                    :class="active === 'fullstack' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Fullstack Engineer</a>
                             </li>
                             <li>
-                                <a href="#backend" @click="navOpen = false" :aria-current="active === 'backend' ? 'true' : null"
-                                    :class="active === 'backend' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
-                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Backend</a>
+                                <a href="#ai-chatbot" @click="select('ai-chatbot')" :aria-current="active === 'ai-chatbot' ? 'true' : null"
+                                    :class="active === 'ai-chatbot' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">AI Chatbot Developer</a>
                             </li>
                             <li>
-                                <a href="#design" @click="navOpen = false" :aria-current="active === 'design' ? 'true' : null"
-                                    :class="active === 'design' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
-                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Design</a>
+                                <a href="#electronics-iot" @click="select('electronics-iot')" :aria-current="active === 'electronics-iot' ? 'true' : null"
+                                    :class="active === 'electronics-iot' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Electronics &amp; IoT</a>
+                            </li>
+                            <li>
+                                <a href="#data-analytics" @click="select('data-analytics')" :aria-current="active === 'data-analytics' ? 'true' : null"
+                                    :class="active === 'data-analytics' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Data Analytics</a>
+                            </li>
+                            <li>
+                                <a href="#3d-artist" @click="select('3d-artist')" :aria-current="active === '3d-artist' ? 'true' : null"
+                                    :class="active === '3d-artist' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">3D Artist</a>
+                            </li>
+                            <li>
+                                <a href="#graphics-design" @click="select('graphics-design')" :aria-current="active === 'graphics-design' ? 'true' : null"
+                                    :class="active === 'graphics-design' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Graphics and Design</a>
+                            </li>
+                            <li>
+                                <a href="#video-editing" @click="select('video-editing')" :aria-current="active === 'video-editing' ? 'true' : null"
+                                    :class="active === 'video-editing' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Video Editing</a>
+                            </li>
+                            <li>
+                                <a href="#desktop-software" @click="select('desktop-software')" :aria-current="active === 'desktop-software' ? 'true' : null"
+                                    :class="active === 'desktop-software' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Desktop Software</a>
+                            </li>
+                            <li>
+                                <a href="#problem-solving" @click="select('problem-solving')" :aria-current="active === 'problem-solving' ? 'true' : null"
+                                    :class="active === 'problem-solving' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Problem Solving</a>
+                            </li>
+                            <li>
+                                <a href="#productivity" @click="select('productivity')" :aria-current="active === 'productivity' ? 'true' : null"
+                                    :class="active === 'productivity' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Productivity</a>
                             </li>
                         </ul>
                     </div>
@@ -303,84 +373,96 @@
                     </aside>
                 </section>
 
-                <section id="frontend" data-doc-section data-title="Frontend" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                <section id="fullstack" data-doc-section data-title="Fullstack Engineer" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
                     <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
-                    <h2 class="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Frontend</h2>
-                    <p class="mt-2 max-w-2xl text-muted">The part of a website people see and touch: layout, styling and interaction in the browser.</p>
-                    <ul class="mt-6 grid gap-4 sm:grid-cols-2">
-                        <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="font-semibold text-ink dark:text-white">Alpine.js</h3>
-                                <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
-                            </div>
-                            <p class="mt-2 text-sm leading-relaxed text-muted">A small JavaScript framework for adding behavior directly in your HTML.</p>
-                        </li>
-                        <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="font-semibold text-ink dark:text-white">Tailwind CSS</h3>
-                                <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
-                            </div>
-                            <p class="mt-2 text-sm leading-relaxed text-muted">A utility-first CSS framework for building custom designs without leaving your markup.</p>
-                        </li>
-                        <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="font-semibold text-ink dark:text-white">JavaScript</h3>
-                                <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
-                            </div>
-                            <p class="mt-2 text-sm leading-relaxed text-muted">The language of the browser, and the foundation under every frontend tool.</p>
-                        </li>
-                    </ul>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">Fullstack Engineer</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">HTML</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">CSS</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">SCSS</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">JavaScript</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Python</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">PHP</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">SQL</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Bash</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Laravel</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">SvelteKit</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Express.js</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Tailwind CSS</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Alpine.js</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Blade Templates</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Node.js</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Vite</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">XAMPP</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Herd</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Git</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">GitHub</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">VS Code</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">MySQL</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Firebase</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Amazon S3</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Laravel Cloud</li></ul>
                 </section>
 
-                <section id="backend" data-doc-section data-title="Backend" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                <section id="ai-chatbot" data-doc-section data-title="AI Chatbot Developer" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
                     <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
-                    <h2 class="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Backend</h2>
-                    <p class="mt-2 max-w-2xl text-muted">The part that runs on a server: data, business rules and the APIs other apps talk to.</p>
-                    <ul class="mt-6 grid gap-4 sm:grid-cols-2">
-                        <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="font-semibold text-ink dark:text-white">Laravel</h3>
-                                <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
-                            </div>
-                            <p class="mt-2 text-sm leading-relaxed text-muted">A PHP framework with routing, an ORM, queues and everything a web backend needs.</p>
-                        </li>
-                        <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="font-semibold text-ink dark:text-white">Livewire</h3>
-                                <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
-                            </div>
-                            <p class="mt-2 text-sm leading-relaxed text-muted">Build dynamic interfaces in Laravel with PHP components instead of writing JavaScript.</p>
-                        </li>
-                        <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="font-semibold text-ink dark:text-white">MySQL</h3>
-                                <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
-                            </div>
-                            <p class="mt-2 text-sm leading-relaxed text-muted">A relational database for storing structured data and querying it with SQL.</p>
-                        </li>
-                        <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="font-semibold text-ink dark:text-white">REST APIs</h3>
-                                <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
-                            </div>
-                            <p class="mt-2 text-sm leading-relaxed text-muted">A convention for exposing data over HTTP so apps and services can talk to each other.</p>
-                        </li>
-                    </ul>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">AI Chatbot Developer</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <p class="mt-3 max-w-2xl text-muted">Built conversational bots for support, learning, and task automation using NLP and ML APIs.</p>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Python</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Node.js</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Hugging Face</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">OpenAI API</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Gemini API</li></ul>
                 </section>
 
-                <section id="design" data-doc-section data-title="Design" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                <section id="electronics-iot" data-doc-section data-title="Electronics &amp; IoT" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
                     <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
-                    <h2 class="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Design</h2>
-                    <p class="mt-2 max-w-2xl text-muted">How an idea becomes an interface people understand before a line of code is written.</p>
-                    <ul class="mt-6 grid gap-4 sm:grid-cols-2">
-                        <li class="rounded-2xl bg-white p-5 ring-1 ring-border dark:bg-white/5">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="font-semibold text-ink dark:text-white">Figma</h3>
-                                <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
-                            </div>
-                            <p class="mt-2 text-sm leading-relaxed text-muted">A collaborative interface design tool for wireframes, prototypes and design systems.</p>
-                        </li>
-                    </ul>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">Electronics &amp; IoT</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <p class="mt-3 max-w-2xl text-muted">Engineered smart systems and automated solutions using microcontrollers and edge AI.</p>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">C++</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">ESP32</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">ESP8266</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Arduino Uno R3</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">HC-SR04</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Servo</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Motor Driver</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">LCD</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">320 x 240 LCD TFT Touch</li></ul>
+                </section>
+
+                <section id="data-analytics" data-doc-section data-title="Data Analytics" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                    <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">Data Analytics</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Google Sheets</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">SQL</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Python</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Google Colab</li></ul>
+                </section>
+
+                <section id="3d-artist" data-doc-section data-title="3D Artist" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                    <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">3D Artist</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Blender</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">SOLIDWORKS</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Fusion 360</li></ul>
+                </section>
+
+                <section id="graphics-design" data-doc-section data-title="Graphics and Design" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                    <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">Graphics and Design</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Adobe</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Corel</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Figma</li></ul>
+                </section>
+
+                <section id="video-editing" data-doc-section data-title="Video Editing" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                    <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">Video Editing</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">CapCut</li></ul>
+                </section>
+
+                <section id="desktop-software" data-doc-section data-title="Desktop Software" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                    <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">Desktop Software</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Electron.js</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Rust</li><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Turing</li></ul>
+                </section>
+
+                <section id="problem-solving" data-doc-section data-title="Problem Solving" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                    <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">Problem Solving</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">LeetCode</li></ul>
+                </section>
+
+                <section id="productivity" data-doc-section data-title="Productivity" class="scroll-mt-28 border-t border-border pt-12 mt-12 lg:scroll-mt-20">
+                    <p class="text-xs font-semibold tracking-wider text-accent uppercase">Lessons</p>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h2 class="text-3xl font-semibold tracking-tight text-ink dark:text-white">Productivity</h2>
+                        <span class="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">Coming soon</span>
+                    </div>
+                    <ul class="mt-6 flex flex-wrap gap-2"><li class="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink dark:bg-white/5 dark:text-white">Google Docs</li></ul>
                 </section>
             </article>
         </div>

@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Experience — Yora Jihun</title>
-    <meta name="description" content="A timeline from 2016 to 2026 — projects, roles, research and milestones.">
+    <title>Experience | Yora Jihun</title>
+    <meta name="description" content="A timeline from 2016 to 2026: projects, roles, research and milestones.">
 
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/app.css">
@@ -219,62 +219,77 @@
                         <p class="px-3 pb-1.5 text-[11px] font-semibold tracking-wider text-ink uppercase dark:text-white">Timeline</p>
                         <ul class="space-y-0.5">
                             <li>
-                                <a href="#overview" @click="navOpen = false" :aria-current="active === 'overview' ? 'true' : null"
+                                <a href="#overview" @click="select('overview')" :aria-current="active === 'overview' ? 'true' : null"
                                     :class="active === 'overview' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Overview</a>
                             </li>
                             <li>
-                                <a href="#y2016" @click="navOpen = false" :aria-current="active === 'y2016' ? 'true' : null"
-                                    :class="active === 'y2016' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                <a href="#range2016" @click="select('range2016')" :aria-current="active === 'range2016' ? 'true' : null"
+                                    :class="active === 'range2016' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2016 – 2021</a>
                             </li>
                             <li>
-                                <a href="#y2019" @click="navOpen = false" :aria-current="active === 'y2019' ? 'true' : null"
+                                <a href="#y2016" @click="select('y2016')" :aria-current="active === 'y2016' ? 'true' : null"
+                                    :class="active === 'y2016' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2016</a>
+                            </li>
+                            <li>
+                                <a href="#y2017" @click="select('y2017')" :aria-current="active === 'y2017' ? 'true' : null"
+                                    :class="active === 'y2017' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2017</a>
+                            </li>
+                            <li>
+                                <a href="#y2018" @click="select('y2018')" :aria-current="active === 'y2018' ? 'true' : null"
+                                    :class="active === 'y2018' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2018</a>
+                            </li>
+                            <li>
+                                <a href="#y2019" @click="select('y2019')" :aria-current="active === 'y2019' ? 'true' : null"
                                     :class="active === 'y2019' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2019</a>
                             </li>
                             <li>
-                                <a href="#y2020" @click="navOpen = false" :aria-current="active === 'y2020' ? 'true' : null"
+                                <a href="#y2020" @click="select('y2020')" :aria-current="active === 'y2020' ? 'true' : null"
                                     :class="active === 'y2020' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2020</a>
                             </li>
                             <li>
-                                <a href="#y2021" @click="navOpen = false" :aria-current="active === 'y2021' ? 'true' : null"
+                                <a href="#y2021" @click="select('y2021')" :aria-current="active === 'y2021' ? 'true' : null"
                                     :class="active === 'y2021' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2021</a>
                             </li>
                             <li>
-                                <a href="#y2022" @click="navOpen = false" :aria-current="active === 'y2022' ? 'true' : null"
+                                <a href="#y2022" @click="select('y2022')" :aria-current="active === 'y2022' ? 'true' : null"
                                     :class="active === 'y2022' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2022</a>
                             </li>
                             <li>
-                                <a href="#y2023" @click="navOpen = false" :aria-current="active === 'y2023' ? 'true' : null"
+                                <a href="#y2023" @click="select('y2023')" :aria-current="active === 'y2023' ? 'true' : null"
                                     :class="active === 'y2023' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2023</a>
                             </li>
                             <li>
-                                <a href="#y2024" @click="navOpen = false" :aria-current="active === 'y2024' ? 'true' : null"
+                                <a href="#y2024" @click="select('y2024')" :aria-current="active === 'y2024' ? 'true' : null"
                                     :class="active === 'y2024' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2024</a>
                             </li>
                             <li>
-                                <a href="#y2024b" @click="navOpen = false" :aria-current="active === 'y2024b' ? 'true' : null"
+                                <a href="#y2024b" @click="select('y2024b')" :aria-current="active === 'y2024b' ? 'true' : null"
                                     :class="active === 'y2024b' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2024 · Senior High</a>
                             </li>
                             <li>
-                                <a href="#y2025" @click="navOpen = false" :aria-current="active === 'y2025' ? 'true' : null"
+                                <a href="#y2025" @click="select('y2025')" :aria-current="active === 'y2025' ? 'true' : null"
                                     :class="active === 'y2025' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2025</a>
                             </li>
                             <li>
-                                <a href="#y2025b" @click="navOpen = false" :aria-current="active === 'y2025b' ? 'true' : null"
+                                <a href="#y2025b" @click="select('y2025b')" :aria-current="active === 'y2025b' ? 'true' : null"
                                     :class="active === 'y2025b' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2025 · Part II</a>
                             </li>
                             <li>
-                                <a href="#y2026" @click="navOpen = false" :aria-current="active === 'y2026' ? 'true' : null"
+                                <a href="#y2026" @click="select('y2026')" :aria-current="active === 'y2026' ? 'true' : null"
                                     :class="active === 'y2026' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2025 – 2026</a>
                             </li>
@@ -292,62 +307,77 @@
                         <p class="px-3 pb-1.5 text-[11px] font-semibold tracking-wider text-ink uppercase dark:text-white">Timeline</p>
                         <ul class="space-y-0.5">
                             <li>
-                                <a href="#overview" @click="navOpen = false" :aria-current="active === 'overview' ? 'true' : null"
+                                <a href="#overview" @click="select('overview')" :aria-current="active === 'overview' ? 'true' : null"
                                     :class="active === 'overview' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">Overview</a>
                             </li>
                             <li>
-                                <a href="#y2016" @click="navOpen = false" :aria-current="active === 'y2016' ? 'true' : null"
-                                    :class="active === 'y2016' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                <a href="#range2016" @click="select('range2016')" :aria-current="active === 'range2016' ? 'true' : null"
+                                    :class="active === 'range2016' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2016 – 2021</a>
                             </li>
                             <li>
-                                <a href="#y2019" @click="navOpen = false" :aria-current="active === 'y2019' ? 'true' : null"
+                                <a href="#y2016" @click="select('y2016')" :aria-current="active === 'y2016' ? 'true' : null"
+                                    :class="active === 'y2016' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2016</a>
+                            </li>
+                            <li>
+                                <a href="#y2017" @click="select('y2017')" :aria-current="active === 'y2017' ? 'true' : null"
+                                    :class="active === 'y2017' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2017</a>
+                            </li>
+                            <li>
+                                <a href="#y2018" @click="select('y2018')" :aria-current="active === 'y2018' ? 'true' : null"
+                                    :class="active === 'y2018' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
+                                    class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2018</a>
+                            </li>
+                            <li>
+                                <a href="#y2019" @click="select('y2019')" :aria-current="active === 'y2019' ? 'true' : null"
                                     :class="active === 'y2019' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2019</a>
                             </li>
                             <li>
-                                <a href="#y2020" @click="navOpen = false" :aria-current="active === 'y2020' ? 'true' : null"
+                                <a href="#y2020" @click="select('y2020')" :aria-current="active === 'y2020' ? 'true' : null"
                                     :class="active === 'y2020' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2020</a>
                             </li>
                             <li>
-                                <a href="#y2021" @click="navOpen = false" :aria-current="active === 'y2021' ? 'true' : null"
+                                <a href="#y2021" @click="select('y2021')" :aria-current="active === 'y2021' ? 'true' : null"
                                     :class="active === 'y2021' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2021</a>
                             </li>
                             <li>
-                                <a href="#y2022" @click="navOpen = false" :aria-current="active === 'y2022' ? 'true' : null"
+                                <a href="#y2022" @click="select('y2022')" :aria-current="active === 'y2022' ? 'true' : null"
                                     :class="active === 'y2022' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2022</a>
                             </li>
                             <li>
-                                <a href="#y2023" @click="navOpen = false" :aria-current="active === 'y2023' ? 'true' : null"
+                                <a href="#y2023" @click="select('y2023')" :aria-current="active === 'y2023' ? 'true' : null"
                                     :class="active === 'y2023' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2023</a>
                             </li>
                             <li>
-                                <a href="#y2024" @click="navOpen = false" :aria-current="active === 'y2024' ? 'true' : null"
+                                <a href="#y2024" @click="select('y2024')" :aria-current="active === 'y2024' ? 'true' : null"
                                     :class="active === 'y2024' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2024</a>
                             </li>
                             <li>
-                                <a href="#y2024b" @click="navOpen = false" :aria-current="active === 'y2024b' ? 'true' : null"
+                                <a href="#y2024b" @click="select('y2024b')" :aria-current="active === 'y2024b' ? 'true' : null"
                                     :class="active === 'y2024b' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2024 · Senior High</a>
                             </li>
                             <li>
-                                <a href="#y2025" @click="navOpen = false" :aria-current="active === 'y2025' ? 'true' : null"
+                                <a href="#y2025" @click="select('y2025')" :aria-current="active === 'y2025' ? 'true' : null"
                                     :class="active === 'y2025' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2025</a>
                             </li>
                             <li>
-                                <a href="#y2025b" @click="navOpen = false" :aria-current="active === 'y2025b' ? 'true' : null"
+                                <a href="#y2025b" @click="select('y2025b')" :aria-current="active === 'y2025b' ? 'true' : null"
                                     :class="active === 'y2025b' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2025 · Part II</a>
                             </li>
                             <li>
-                                <a href="#y2026" @click="navOpen = false" :aria-current="active === 'y2026' ? 'true' : null"
+                                <a href="#y2026" @click="select('y2026')" :aria-current="active === 'y2026' ? 'true' : null"
                                     :class="active === 'y2026' ? 'bg-accent-soft font-medium text-accent' : 'text-muted hover:text-ink dark:hover:text-white'"
                                     class="block rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">2025 – 2026</a>
                             </li>
@@ -358,7 +388,8 @@
 
             <article class="min-w-0 pb-24">
                 <section id="overview" data-doc-section data-title="Overview" class="scroll-mt-28 pt-10 lg:scroll-mt-20 lg:pt-16">
-                    <div class="relative z-0 overflow-hidden rounded-3xl bg-surface p-7 ring-1 ring-border sm:p-10 lg:p-12">
+                    <div x-data="ageTimeline({ birthYear: 2004, startYear: 2016, endYear: 2026, lastId: 'y2026' })"
+                        class="relative z-0 overflow-hidden rounded-3xl bg-surface p-7 ring-1 ring-border sm:p-10 lg:p-12">
                         <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
                             <div class="absolute -top-16 -left-10 h-64 w-64 rounded-full bg-accent/20 blur-3xl"></div>
                             <div class="absolute -right-10 -bottom-20 h-72 w-72 rounded-full bg-fuchsia-400/15 blur-3xl dark:bg-fuchsia-500/10"></div>
@@ -367,8 +398,8 @@
                         <p class="text-xs font-semibold tracking-wider text-accent uppercase">Experience</p>
                         <h1 class="mt-3 text-5xl font-semibold tracking-tight text-balance text-ink sm:text-6xl dark:text-white">Timeline</h1>
                         <p class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xl font-medium text-muted sm:text-2xl">
-                            <span>2016 – 2026</span>
-                            <span class="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold tracking-wide text-accent uppercase">A decade</span>
+                            <span x-text="rangeLabel">2016 – 2026</span>
+                            <span x-text="spanLabel" class="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold tracking-wide text-accent uppercase">A decade</span>
                         </p>
 
                         <figure class="mt-8 max-w-2xl">
@@ -381,100 +412,93 @@
                         <div class="mt-10 border-t border-border pt-8">
                             <dl class="grid max-w-md grid-cols-3 gap-6">
                                 <div>
-                                    <dd class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl dark:text-white">10</dd>
+                                    <dd x-text="years" class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl dark:text-white">10</dd>
                                     <dt class="mt-0.5 text-xs text-muted">Years</dt>
                                 </div>
                                 <div>
-                                    <dd class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl dark:text-white">11</dd>
+                                    <dd class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl dark:text-white">14</dd>
                                     <dt class="mt-0.5 text-xs text-muted">Chapters</dt>
                                 </div>
                                 <div>
-                                    <dd class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl dark:text-white">13 → 21</dd>
+                                    <dd x-text="ageRange" class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl dark:text-white">12 → 22</dd>
                                     <dt class="mt-0.5 text-xs text-muted">Age</dt>
                                 </div>
                             </dl>
 
-                            <p class="mt-10 text-xs font-semibold tracking-wider text-muted uppercase">A decade at a glance</p>
-                            <nav aria-label="Years" class="-mx-2 mt-4 overflow-x-auto px-2 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                                <ol class="relative flex min-w-[36rem] justify-between sm:min-w-0">
-                                    <span class="absolute top-[7px] right-4 left-4 h-px bg-gradient-to-r from-accent via-accent/40 to-accent" aria-hidden="true"></span>
-                                    <li class="relative">
-                                        <a href="#y2016" class="group flex flex-col items-center gap-2 rounded-lg px-2 py-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">
-                                            <span class="h-3.5 w-3.5 rounded-full ring-2 ring-accent transition-colors bg-white group-hover:bg-accent dark:bg-[#0a0a0a]"></span>
-                                            <span class="text-sm font-semibold text-ink dark:text-white">2016</span>
-                                            <span class="-mt-1.5 text-[11px] text-muted">Age 13</span>
-                                        </a>
-                                    </li>
-                                    <li class="relative">
-                                        <a href="#y2019" class="group flex flex-col items-center gap-2 rounded-lg px-2 py-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">
-                                            <span class="h-3.5 w-3.5 rounded-full ring-2 ring-accent transition-colors bg-white group-hover:bg-accent dark:bg-[#0a0a0a]"></span>
-                                            <span class="text-sm font-semibold text-ink dark:text-white">2019</span>
-                                            <span class="-mt-1.5 text-[11px] text-muted">Age 15</span>
-                                        </a>
-                                    </li>
-                                    <li class="relative">
-                                        <a href="#y2020" class="group flex flex-col items-center gap-2 rounded-lg px-2 py-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">
-                                            <span class="h-3.5 w-3.5 rounded-full ring-2 ring-accent transition-colors bg-white group-hover:bg-accent dark:bg-[#0a0a0a]"></span>
-                                            <span class="text-sm font-semibold text-ink dark:text-white">2020</span>
-                                            <span class="-mt-1.5 text-[11px] text-muted">Age 16</span>
-                                        </a>
-                                    </li>
-                                    <li class="relative">
-                                        <a href="#y2021" class="group flex flex-col items-center gap-2 rounded-lg px-2 py-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">
-                                            <span class="h-3.5 w-3.5 rounded-full ring-2 ring-accent transition-colors bg-white group-hover:bg-accent dark:bg-[#0a0a0a]"></span>
-                                            <span class="text-sm font-semibold text-ink dark:text-white">2021</span>
-                                            <span class="-mt-1.5 text-[11px] text-muted">Age 17</span>
-                                        </a>
-                                    </li>
-                                    <li class="relative">
-                                        <a href="#y2022" class="group flex flex-col items-center gap-2 rounded-lg px-2 py-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">
-                                            <span class="h-3.5 w-3.5 rounded-full ring-2 ring-accent transition-colors bg-white group-hover:bg-accent dark:bg-[#0a0a0a]"></span>
-                                            <span class="text-sm font-semibold text-ink dark:text-white">2022</span>
-                                            <span class="-mt-1.5 text-[11px] text-muted">Age 18</span>
-                                        </a>
-                                    </li>
-                                    <li class="relative">
-                                        <a href="#y2023" class="group flex flex-col items-center gap-2 rounded-lg px-2 py-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">
-                                            <span class="h-3.5 w-3.5 rounded-full ring-2 ring-accent transition-colors bg-white group-hover:bg-accent dark:bg-[#0a0a0a]"></span>
-                                            <span class="text-sm font-semibold text-ink dark:text-white">2023</span>
-                                            <span class="-mt-1.5 text-[11px] text-muted">Age 19</span>
-                                        </a>
-                                    </li>
-                                    <li class="relative">
-                                        <a href="#y2024" class="group flex flex-col items-center gap-2 rounded-lg px-2 py-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">
-                                            <span class="h-3.5 w-3.5 rounded-full ring-2 ring-accent transition-colors bg-white group-hover:bg-accent dark:bg-[#0a0a0a]"></span>
-                                            <span class="text-sm font-semibold text-ink dark:text-white">2024</span>
-                                            <span class="-mt-1.5 text-[11px] text-muted">Age 20</span>
-                                        </a>
-                                    </li>
-                                    <li class="relative">
-                                        <a href="#y2025" class="group flex flex-col items-center gap-2 rounded-lg px-2 py-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">
-                                            <span class="h-3.5 w-3.5 rounded-full ring-2 ring-accent transition-colors bg-white group-hover:bg-accent dark:bg-[#0a0a0a]"></span>
-                                            <span class="text-sm font-semibold text-ink dark:text-white">2025</span>
-                                            <span class="-mt-1.5 text-[11px] text-muted">Age 21</span>
-                                        </a>
-                                    </li>
-                                    <li class="relative">
-                                        <a href="#y2026" class="group flex flex-col items-center gap-2 rounded-lg px-2 py-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none">
-                                            <span class="h-3.5 w-3.5 rounded-full ring-2 ring-accent transition-colors bg-accent"></span>
-                                            <span class="text-sm font-semibold text-ink dark:text-white">2026</span>
-                                            <span class="-mt-1.5 text-[11px] text-muted">Age 21</span>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </nav>
+                            <table class="mt-10 w-full max-w-md text-left text-[15px]">
+                                <caption class="sr-only">Each year of the timeline and the age turned in it</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="w-2/5 pb-3 font-semibold text-ink dark:text-white">Year</th>
+                                        <th scope="col" class="pb-3 font-semibold text-ink dark:text-white">Age you turned</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-border border-t border-border">
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2016" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2016</a></th>
+                                        <td class="p-0" :class="isNow(2016) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2016" tabindex="-1" class="block py-3 transition-colors hover:text-accent">12 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2017" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2017</a></th>
+                                        <td class="p-0" :class="isNow(2017) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2017" tabindex="-1" class="block py-3 transition-colors hover:text-accent">13 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2018" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2018</a></th>
+                                        <td class="p-0" :class="isNow(2018) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2018" tabindex="-1" class="block py-3 transition-colors hover:text-accent">14 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2019" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2019</a></th>
+                                        <td class="p-0" :class="isNow(2019) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2019" tabindex="-1" class="block py-3 transition-colors hover:text-accent">15 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2020" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2020</a></th>
+                                        <td class="p-0" :class="isNow(2020) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2020" tabindex="-1" class="block py-3 transition-colors hover:text-accent">16 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2021" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2021</a></th>
+                                        <td class="p-0" :class="isNow(2021) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2021" tabindex="-1" class="block py-3 transition-colors hover:text-accent">17 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2022" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2022</a></th>
+                                        <td class="p-0" :class="isNow(2022) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2022" tabindex="-1" class="block py-3 transition-colors hover:text-accent">18 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2023" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2023</a></th>
+                                        <td class="p-0" :class="isNow(2023) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2023" tabindex="-1" class="block py-3 transition-colors hover:text-accent">19 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2024" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2024</a></th>
+                                        <td class="p-0" :class="isNow(2024) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2024" tabindex="-1" class="block py-3 transition-colors hover:text-accent">20 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2025" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2025</a></th>
+                                        <td class="p-0" :class="isNow(2025) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2025" tabindex="-1" class="block py-3 transition-colors hover:text-accent">21 years old</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a href="#y2026" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none">2026</a></th>
+                                        <td class="p-0" :class="isNow(2026) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a href="#y2026" tabindex="-1" class="block py-3 transition-colors hover:text-accent">22 years old</a></td>
+                                    </tr>
+                                    <!-- Years after the last written chapter are added automatically -->
+                                    <template x-for="row in extraRows" :key="row.year">
+                                        <tr>
+                                            <th scope="row" class="p-0 text-left font-semibold text-ink dark:text-white"><a :href="'#' + lastId" x-text="row.year" class="block py-3 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none"></a></th>
+                                            <td class="p-0" :class="isNow(row.year) ? 'font-semibold text-ink dark:text-white' : 'text-ink/80 dark:text-white/80'"><a :href="'#' + lastId" tabindex="-1" x-text="row.age + ' years old'" class="block py-3 transition-colors hover:text-accent"></a></td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </section>
 
                 <div class="relative mt-12 ml-2 space-y-8 border-l border-border pl-6 sm:pl-8">
 
-                    <section id="y2016" data-doc-section data-title="2016 – 2021" class="relative scroll-mt-28 lg:scroll-mt-20">
+                    <section id="range2016" data-doc-section data-title="2016 – 2021" class="relative scroll-mt-28 lg:scroll-mt-20">
                         <span class="absolute top-8 -left-[calc(1.5rem+6.5px)] h-3 w-3 rounded-full bg-accent ring-4 ring-white sm:-left-[calc(2rem+6.5px)] dark:ring-[#0a0a0a]" aria-hidden="true"></span>
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2016 – 2021</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">13-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">12 to 17 years old</span>
                             </div>
                             <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
@@ -492,25 +516,25 @@
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Junior High PBA All-Star League</span><span class="text-muted"> — Player of the game</span>
+                                    <span class="font-semibold text-ink dark:text-white">Multiple Gained Experience</span>
                                 </div>
                             </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="y2016" data-doc-section data-title="2016" class="relative scroll-mt-28 lg:scroll-mt-20">
+                        <span class="absolute top-8 -left-[calc(1.5rem+6.5px)] h-3 w-3 rounded-full bg-accent ring-4 ring-white sm:-left-[calc(2rem+6.5px)] dark:ring-[#0a0a0a]" aria-hidden="true"></span>
+                        <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+                                <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2016</h2>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">12 years old</span>
+                            </div>
+                            <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
                                     <span class="font-semibold text-ink dark:text-white">Best in Social Studies</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3 text-[15px] leading-relaxed">
-                                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
-                                <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Best in Computer literacy</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3 text-[15px] leading-relaxed">
-                                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
-                                <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Chosen for the Info Tech Award</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
@@ -525,6 +549,60 @@
                                     <span class="font-semibold text-ink dark:text-white">Bug Bounty Hunter for Games</span>
                                 </div>
                             </li>
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed">
+                                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                                <div class="min-w-0">
+                                    <span class="font-semibold text-ink dark:text-white">Class President</span><span class="text-muted">: Unanimous mandate</span>
+                                </div>
+                            </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="y2017" data-doc-section data-title="2017" class="relative scroll-mt-28 lg:scroll-mt-20">
+                        <span class="absolute top-8 -left-[calc(1.5rem+6.5px)] h-3 w-3 rounded-full bg-accent ring-4 ring-white sm:-left-[calc(2rem+6.5px)] dark:ring-[#0a0a0a]" aria-hidden="true"></span>
+                        <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+                                <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2017</h2>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">13 years old</span>
+                            </div>
+                            <ul class="mt-5 space-y-3">
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed">
+                                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                                <div class="min-w-0">
+                                    <span class="font-semibold text-ink dark:text-white">Joined Basketball Club</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed">
+                                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                                <div class="min-w-0">
+                                    <span class="font-semibold text-ink dark:text-white">Junior High PBA All-Star League</span><span class="text-muted">: Player of the game</span>
+                                </div>
+                            </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="y2018" data-doc-section data-title="2018" class="relative scroll-mt-28 lg:scroll-mt-20">
+                        <span class="absolute top-8 -left-[calc(1.5rem+6.5px)] h-3 w-3 rounded-full bg-accent ring-4 ring-white sm:-left-[calc(2rem+6.5px)] dark:ring-[#0a0a0a]" aria-hidden="true"></span>
+                        <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+                                <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2018</h2>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">14 years old</span>
+                            </div>
+                            <ul class="mt-5 space-y-3">
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed">
+                                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                                <div class="min-w-0">
+                                    <span class="font-semibold text-ink dark:text-white">Best in Computer literacy</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed">
+                                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                                <div class="min-w-0">
+                                    <span class="font-semibold text-ink dark:text-white">Chosen for the Info Tech Award</span>
+                                </div>
+                            </li>
                             </ul>
                         </div>
                     </section>
@@ -534,31 +612,37 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2019</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">15-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">15 years old</span>
                             </div>
                             <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Cybersecurity Analyst</span><span class="text-muted"> — Helped protect victims from stolen accounts.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Cybersecurity Analyst</span><span class="text-muted">: Helped protect victims from stolen accounts.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Crypto Trader</span><span class="text-muted"> — Learned trading using cryptocurrency.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Crypto Trader</span><span class="text-muted">: Learned trading using cryptocurrency.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">3D Modeler</span><span class="text-muted"> — Built hard-surface 3D models</span>
+                                    <span class="font-semibold text-ink dark:text-white">3D Modeler</span><span class="text-muted">: Built hard-surface 3D models</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">PLDT Bug Incident Report</span><span class="text-muted"> — During the experimentation, I accidentally bypassed the admin and immediately secured the system to ethically protect both sides.</span>
+                                    <span class="font-semibold text-ink dark:text-white">PLDT Bug Incident Report</span><span class="text-muted">: During the experimentation, I accidentally bypassed the admin and immediately secured the system to ethically protect both sides.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-[15px] leading-relaxed">
+                                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                                <div class="min-w-0">
+                                    <span class="font-semibold text-ink dark:text-white">Became a Club President in Computer Club</span>
                                 </div>
                             </li>
                             </ul>
@@ -570,31 +654,31 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2020</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">16-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">16 years old</span>
                             </div>
                             <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Game Developer</span><span class="text-muted"> — Built a simple game from scratch.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Game Developer</span><span class="text-muted">: Built a simple game from scratch.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Front-End Developer</span><span class="text-muted"> — Started my first Web Development career.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Front-End Developer</span><span class="text-muted">: Started my first Web Development career.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">UI/UX Designer</span><span class="text-muted"> — Learned to design web systems and interfaces.</span>
+                                    <span class="font-semibold text-ink dark:text-white">UI/UX Designer</span><span class="text-muted">: Learned to design web systems and interfaces.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Junior System Analyst</span><span class="text-muted"> — Contributed to an open-source project where my idea was compensated, and the earnings were invested into my personal project.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Junior System Analyst</span><span class="text-muted">: Contributed to an open-source project where my idea was compensated, and the earnings were invested into my personal project.</span>
                                 </div>
                             </li>
                             </ul>
@@ -606,43 +690,43 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2021</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">17-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">17 years old</span>
                             </div>
                             <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Freelancer</span><span class="text-muted"> — Worked both locally and internationally.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Freelancer</span><span class="text-muted">: Worked both locally and internationally.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Game Developer</span><span class="text-muted"> — Continued improving game development.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Game Developer</span><span class="text-muted">: Continued improving game development.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Technical Writer</span><span class="text-muted"> — Wrote documentation to support my projects.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Technical Writer</span><span class="text-muted">: Wrote documentation to support my projects.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Back-End Developer</span><span class="text-muted"> — Learned APIs and databases.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Back-End Developer</span><span class="text-muted">: Learned APIs and databases.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Dev Support</span><span class="text-muted"> — Assisted in system development for a private company.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Dev Support</span><span class="text-muted">: Assisted in system development for a private company.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Junior High</span><span class="text-muted"> — Rank 1 Student.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Junior High</span><span class="text-muted">: Rank 1 Student.</span>
                                 </div>
                             </li>
                             </ul>
@@ -654,31 +738,31 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2022</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">18-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">18 years old</span>
                             </div>
                             <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">System Architect</span><span class="text-muted"> — Created my own web-based OS architecture.</span>
+                                    <span class="font-semibold text-ink dark:text-white">System Architect</span><span class="text-muted">: Created my own web-based OS architecture.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Social Media Developer</span><span class="text-muted"> — Built my own social media platform from scratch.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Social Media Developer</span><span class="text-muted">: Built my own social media platform from scratch.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">College Mentor</span><span class="text-muted"> — Taught IT students to develop their own systems before graduating high school, as a side hustle.</span>
+                                    <span class="font-semibold text-ink dark:text-white">College Mentor</span><span class="text-muted">: Taught IT students to develop their own systems before graduating high school, as a side hustle.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Youngest Prodigy Developer</span><span class="text-muted"> — Part of the Philippines’ Renowned IT Professional Community.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Youngest Prodigy Developer</span><span class="text-muted">: Part of the Philippines’ Renowned IT Professional Community.</span>
                                 </div>
                             </li>
                             </ul>
@@ -690,43 +774,43 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2023</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">19-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">19 years old</span>
                             </div>
                             <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Psychology Student</span><span class="text-muted"> — Studied human behavior to excel across fields.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Psychology Student</span><span class="text-muted">: Studied human behavior to excel across fields.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Science Tech Competitor</span><span class="text-muted"> — Competed at the National Science &amp; Technology Fair (SHS).</span>
+                                    <span class="font-semibold text-ink dark:text-white">Science Tech Competitor</span><span class="text-muted">: Competed at the National Science &amp; Technology Fair (SHS).</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">AI Developer</span><span class="text-muted"> — Developed an offline educational chatbot.</span>
+                                    <span class="font-semibold text-ink dark:text-white">AI Developer</span><span class="text-muted">: Developed an offline educational chatbot.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Lead Developer</span><span class="text-muted"> — Led tech projects and built innovations in science and education.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Lead Developer</span><span class="text-muted">: Led tech projects and built innovations in science and education.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Solo Research Competitor</span><span class="text-muted"> — Competed in a 3-hour solo research challenge and delivered results under pressure.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Solo Research Competitor</span><span class="text-muted">: Competed in a 3-hour solo research challenge and delivered results under pressure.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Batangas Hackathon Import</span><span class="text-muted"> — Selected as an elite participant in a competitive hackathon.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Batangas Hackathon Import</span><span class="text-muted">: Selected as an elite participant in a competitive hackathon.</span>
                                 </div>
                             </li>
                             </ul>
@@ -738,55 +822,55 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2024</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">20-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">20 years old</span>
                             </div>
                             <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Messenger Platform Creator</span><span class="text-muted"> — Created my own messaging app.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Messenger Platform Creator</span><span class="text-muted">: Created my own messaging app.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Science Tech Competitor</span><span class="text-muted"> — Returned to National Science &amp; Technology Fair.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Science Tech Competitor</span><span class="text-muted">: Returned to National Science &amp; Technology Fair.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">AI Developer</span><span class="text-muted"> — Improved AI chatbot for offline education.</span>
+                                    <span class="font-semibold text-ink dark:text-white">AI Developer</span><span class="text-muted">: Improved AI chatbot for offline education.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Hall of Fame Researcher</span><span class="text-muted"> — Our research set a benchmark and was chosen as Research of the Year.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Hall of Fame Researcher</span><span class="text-muted">: Our research set a benchmark and was chosen as Research of the Year.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">IoT Developer</span><span class="text-muted"> — Developed smart systems.</span>
+                                    <span class="font-semibold text-ink dark:text-white">IoT Developer</span><span class="text-muted">: Developed smart systems.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Robotics Developer</span><span class="text-muted"> — Built intelligent robots.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Robotics Developer</span><span class="text-muted">: Built intelligent robots.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Research Platform Developer</span><span class="text-muted"> — Built tools to help with research and collaboration.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Research Platform Developer</span><span class="text-muted">: Built tools to help with research and collaboration.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">BSIT Worldwide Admin &amp; Mentor</span><span class="text-muted"> — Became a mentor and admin for a global BSIT community with over 1 million+ students.</span>
+                                    <span class="font-semibold text-ink dark:text-white">BSIT Worldwide Admin &amp; Mentor</span><span class="text-muted">: Became a mentor and admin for a global BSIT community with over 1 million+ students.</span>
                                 </div>
                             </li>
                             </ul>
@@ -798,7 +882,7 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2024</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">20-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">20 years old</span>
                                 <span class="text-sm font-medium text-muted">Part II</span>
                             </div>
                             <p class="mt-4 text-xs font-semibold tracking-wider text-accent uppercase">Senior High Edition</p>
@@ -812,7 +896,7 @@
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Hall of Fame Researcher</span><span class="text-muted"> — Our research set a benchmark and was chosen as Research of the Year</span>
+                                    <span class="font-semibold text-ink dark:text-white">Hall of Fame Researcher</span><span class="text-muted">: Our research set a benchmark and was chosen as Research of the Year</span>
                                 </div>
                             </li>
                             </ul>
@@ -893,37 +977,37 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2025</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">21-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">21 years old</span>
                             </div>
                             <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">First Formal International Work</span><span class="text-muted"> — Started professional journey as Remote Int. W.</span>
+                                    <span class="font-semibold text-ink dark:text-white">First Formal International Work</span><span class="text-muted">: Started professional journey as Remote Int. W.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Data Analyst Student</span><span class="text-muted"> — Diving into the world of data.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Data Analyst Student</span><span class="text-muted">: Diving into the world of data.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Data Science Student</span><span class="text-muted"> — Exploring AI and data-driven development.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Data Science Student</span><span class="text-muted">: Exploring AI and data-driven development.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Computer Vision Creator</span><span class="text-muted"> — Built my own AI-powered computer vision system.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Computer Vision Creator</span><span class="text-muted">: Built my own AI-powered computer vision system.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">AI Roboticist</span><span class="text-muted"> — Created my first robot with:</span>
+                                    <span class="font-semibold text-ink dark:text-white">AI Roboticist</span><span class="text-muted">: Created my first robot with</span>
                                     <ul class="mt-2 flex flex-wrap gap-2"><li class="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">Voice Recognition</li><li class="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">Software Control</li><li class="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">Artificial Intelligence</li></ul>
                                 </div>
                             </li>
@@ -936,56 +1020,56 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2025</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">21-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">21 years old</span>
                                 <span class="text-sm font-medium text-muted">Part II</span>
                             </div>
                             <ul class="mt-5 space-y-3">
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Passed</span><span class="text-muted"> — Initial and Final Interview.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Passed</span><span class="text-muted">: Initial and Final Interview.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Completed</span><span class="text-muted"> — Training in Administration and Accounting.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Completed</span><span class="text-muted">: Training in Administration and Accounting.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Promoted</span><span class="text-muted"> — Head Admin, Contributed to multiple corporations by improving systems and reducing paperwork.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Promoted</span><span class="text-muted">: Head Admin, Contributed to multiple corporations by improving systems and reducing paperwork.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Government Documentation Experience</span><span class="text-muted"> — Managed papers for agencies such as SSS, PAG-IBIG, and PhilHealth, while assisting clients in resolving issues through multitasking.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Government Documentation Experience</span><span class="text-muted">: Managed papers for agencies such as SSS, PAG-IBIG, and PhilHealth, while assisting clients in resolving issues through multitasking.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Banking Support</span><span class="text-muted"> — Provided support for institutions like Metrobank, PSBank, and others.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Banking Support</span><span class="text-muted">: Provided support for institutions like Metrobank, PSBank, and others.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Corporate Support</span><span class="text-muted"> — Assisted with processes involving companies such as Toyota and more.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Corporate Support</span><span class="text-muted">: Assisted with processes involving companies such as Toyota and more.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Youngest Member of the Centralized Internal Officers</span><span class="text-muted"> — Recognized for early leadership and organizational impact.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Youngest Member of the Centralized Internal Officers</span><span class="text-muted">: Recognized for early leadership and organizational impact.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Victory Church</span><span class="text-muted"> — Reconnected with God and met kind, inspiring people; an amazing spiritual experience.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Victory Church</span><span class="text-muted">: Reconnected with God and met kind, inspiring people; an amazing spiritual experience.</span>
                                 </div>
                             </li>
                             </ul>
@@ -997,7 +1081,7 @@
                         <div class="rounded-2xl bg-white p-6 ring-1 ring-border sm:p-8 dark:bg-white/5">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                                 <h2 class="text-2xl font-semibold tracking-tight text-ink dark:text-white">2025 – 2026</h2>
-                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">21-Year-Old</span>
+                                <span class="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">21 to 22 years old</span>
                                 <span class="text-sm font-medium text-muted">Part III</span>
                             </div>
                             <ul class="mt-5 space-y-3">
@@ -1010,37 +1094,37 @@
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Joined the IT Department</span><span class="text-muted"> — Contributed to system improvements and organizational efficiency.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Joined the IT Department</span><span class="text-muted">: Contributed to system improvements and organizational efficiency.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Lead System Engineer</span><span class="text-muted"> — Directed system development and successfully designed and implemented multiple full-stack corporate systems, built on PHP Laravel and MySQL as the core foundation.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Lead System Engineer</span><span class="text-muted">: Directed system development and successfully designed and implemented multiple full-stack corporate systems, built on PHP Laravel and MySQL as the core foundation.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">AI Specialist</span><span class="text-muted"> — Contributed to the field of AI, enhancing productivity and workflow processes.</span>
+                                    <span class="font-semibold text-ink dark:text-white">AI Specialist</span><span class="text-muted">: Contributed to the field of AI, enhancing productivity and workflow processes.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Chosen by the Vice President</span><span class="text-muted"> — Presented the company profile to a Toyota guest manager.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Chosen by the Vice President</span><span class="text-muted">: Presented the company profile to a Toyota guest manager.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Invited to an AI Event</span><span class="text-muted"> — Met the group of Henry Sy and John C. Maxwell; a milestone experience connecting with highly intelligent founders at a young age.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Invited to an AI Event</span><span class="text-muted">: Met the group of Henry Sy and John C. Maxwell; a milestone experience connecting with highly intelligent founders at a young age.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 text-[15px] leading-relaxed">
                                 <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <div class="min-w-0">
-                                    <span class="font-semibold text-ink dark:text-white">Executive Meetings</span><span class="text-muted"> — Invited to a project meeting at Chinabank’s main building, where I collaborated with top executives.</span>
+                                    <span class="font-semibold text-ink dark:text-white">Executive Meetings</span><span class="text-muted">: Invited to a project meeting at Chinabank’s main building, where I collaborated with top executives.</span>
                                 </div>
                             </li>
                             </ul>
