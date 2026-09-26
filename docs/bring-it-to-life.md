@@ -1,5 +1,6 @@
 ---
 title: Bring it to life
+path: web
 order: 3
 summary: Make your page react to clicks with Alpine.js. This is the heat that makes the pot start to simmer.
 serves: Anyone who finished lesson 2
@@ -68,7 +69,13 @@ Add a second block below the counter:
     <li>Chicken</li>
     <li>Soy sauce</li>
     <li>Vinegar</li>
-    <li>Garlic and pepper</li>
+    <li>Black pepper</li>
+    <li>Sugar</li>
+    <li>Bay leaf</li>
+    <li>Garlic</li>
+    <li>Onion</li>
+    <li>Water</li>
+    <li>Oil</li>
   </ul>
 </div>
 ```

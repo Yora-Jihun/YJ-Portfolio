@@ -1,5 +1,6 @@
 ---
 title: Keep your recipe notebook
+path: web
 order: 4
 summary: Save every version of your work with Git, and share it on GitHub, like a notebook of recipes you never lose.
 serves: Anyone who finished lesson 3

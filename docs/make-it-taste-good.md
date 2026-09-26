@@ -1,5 +1,6 @@
 ---
 title: Make it taste good
+path: web
 order: 2
 summary: Add colour, size and space with Tailwind CSS. Same ingredients, very different dish.
 serves: Anyone who finished lesson 1

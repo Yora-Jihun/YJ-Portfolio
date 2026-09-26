@@ -123,7 +123,11 @@ function container(name, arg, inner, file) {
         const parts = tokens.map((t) => {
             if (t.type === 'paragraph') return { p: inline(t.text) };
             if (t.type === 'list') return { list: t.items.map((i) => inline(i.text.trim())) };
-            throw new Error(`${file}: a :::${name} box can only contain paragraphs and lists`);
+            if (t.type === 'code') {
+                const [lang = '', ...rest] = (t.lang ?? '').trim().split(/\s+/);
+                return { code: { kind: 'code', lang, title: rest.join(' '), text: t.text } };
+            }
+            throw new Error(`${file}: a :::${name} box can only contain paragraphs, lists and code blocks`);
         });
         return { kind: 'callout', variant: name, title: arg || CALLOUTS[name].title, parts };
     }
@@ -198,14 +202,17 @@ ${b.items.map((f, i) => `                    <li class="flex items-start gap-3 t
                 </ol>`;
         case 'quote':
             return `<blockquote class="mt-8 border-l-2 border-accent pl-5 text-xl leading-relaxed font-medium text-ink dark:text-white">${b.html}</blockquote>`;
-        case 'code':
-            return `<div x-data="copyCode" class="mt-5 overflow-hidden rounded-2xl bg-[#1d1d1f] ring-1 ring-black/10 dark:ring-white/10">
+        case 'code': {
+            // ```text blocks are sample output or things to type in: nothing to copy, so no Copy button.
+            const copyable = b.lang !== 'text';
+            return `<div${copyable ? ' x-data="copyCode"' : ''} class="mt-5 overflow-hidden rounded-2xl bg-[#1d1d1f] ring-1 ring-black/10 dark:ring-white/10">
                     <div class="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-2 text-xs text-white/60">
-                        <span class="font-mono">${esc(b.title || b.lang || 'code')}</span>
-                        <button type="button" @click="copy()" aria-label="Copy this code" class="rounded-md px-2 py-1 font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"><span x-text="copied ? 'Copied!' : 'Copy'" aria-live="polite">Copy</span></button>
+                        <span class="font-mono">${esc(b.title || (copyable ? b.lang : 'output') || 'code')}</span>${copyable ? `
+                        <button type="button" @click="copy()" aria-label="Copy this code" class="rounded-md px-2 py-1 font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"><span x-text="copied ? 'Copied!' : 'Copy'" aria-live="polite">Copy</span></button>` : ''}
                     </div>
                     <pre class="overflow-x-auto px-4 py-4 text-[13px] leading-relaxed text-white/90"><code>${esc(b.text)}</code></pre>
                 </div>`;
+        }
         case 'figure': {
             if (!/^https?:/.test(b.src) && !fs.existsSync(path.join(root, b.src))) {
                 missingImages.push(b.src);
@@ -243,9 +250,11 @@ ${b.items.map((s, i) => `                    <li class="rounded-2xl bg-white p-5
             const s = calloutStyle[b.variant];
             return `<aside class="mt-8 rounded-2xl p-6 ${s.box}">
                     <p class="text-xs font-semibold tracking-wider uppercase ${s.label}">${esc(b.title)}</p>${b.parts
-                        .map((p) => (p.list
-                            ? `\n                    <ul class="mt-3 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-ink/80 dark:text-white/80">${p.list.map((i) => `<li>${i}</li>`).join('')}</ul>`
-                            : `\n                    <p class="mt-2 text-[15px] leading-relaxed text-ink/80 dark:text-white/80">${p.p}</p>`))
+                        .map((p) => (p.code
+                            ? `\n                    ${renderBlock(p.code)}`
+                            : p.list
+                                ? `\n                    <ul class="mt-3 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-ink/80 dark:text-white/80">${p.list.map((i) => `<li>${i}</li>`).join('')}</ul>`
+                                : `\n                    <p class="mt-2 text-[15px] leading-relaxed text-ink/80 dark:text-white/80">${p.p}</p>`))
                         .join('')}
                 </aside>`;
         }

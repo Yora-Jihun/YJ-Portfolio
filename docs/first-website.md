@@ -1,5 +1,6 @@
 ---
 title: Your first website
+path: web
 order: 1
 summary: Make a real web page from nothing. HTML is where every website starts, like laying out your ingredients before you cook.
 serves: Anyone
@@ -15,7 +16,7 @@ keywords: html first website web page beginner tags heading paragraph list link 
 ---
 
 :::analogy
-Before you cook adobo, you lay out everything on the counter: the chicken, soy sauce, vinegar, garlic, pepper and bay leaf. You’re not cooking yet. You’re only deciding what goes in the pot.
+Before you cook adobo, you lay out everything on the counter: the chicken, soy sauce, vinegar, black pepper, sugar, bay leaf, garlic, onion, water and oil. You’re not cooking yet. You’re only deciding what goes in the pot.
 
 HTML works the same way. It’s the list of what is on your page: a heading, some text, a list, a link. There are no colours or movement yet, just the ingredients.
 :::
